@@ -20,3 +20,4 @@ Route::get('/', function () {
 /*Route::post('/books','BooksController@store');
 Route::patch('/books/{Book}','BooksController@update');*/
 Route::resource('/books','BooksController');
+Route::resource('/author','AuthorsController');
