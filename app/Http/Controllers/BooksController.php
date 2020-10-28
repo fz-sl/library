@@ -35,7 +35,8 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        Book::create($this->validate_request($request));
+        $book = Book::create($this->validate_request($request));
+        return redirect($book->path());
     }
 
     /**
@@ -71,6 +72,8 @@ class BooksController extends Controller
     {
        // dd($book);
         $book->update($this->validate_request($request));
+
+        return redirect($book->path());
     }
 
     /**
@@ -81,7 +84,8 @@ class BooksController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect('/books');
     }
 
     private function validate_request(Request $request)
