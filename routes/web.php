@@ -21,3 +21,10 @@ Route::get('/', function () {
 Route::patch('/books/{Book}','BooksController@update');*/
 Route::resource('/books','BooksController');
 Route::resource('/author','AuthorsController');
+
+Route::post('/checkout/{book}','CheckOutBooksController@store');
+Route::post('/checkin/{book}','CheckInBooksController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

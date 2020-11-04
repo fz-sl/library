@@ -41,7 +41,7 @@ class Book extends Model
             ->whereNull('checked_in_at')
             ->first();
 
-        if(is_null($reservarion)){
+        if (is_null($reservarion)) {
             throw new \Exception();
         }
         $reservarion->update([
